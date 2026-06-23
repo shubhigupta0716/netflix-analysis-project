@@ -57,3 +57,11 @@ Summarize findings, update documentation, and upload the completed project to Gi
 Expected Outcome
 
 By the end of the project, I will have a cleaned dataset, a Jupyter notebook containing the analysis, several visualizations, and a GitHub repository documenting the complete workflow and findings.
+
+Why This Cleaning Strategy?
+
+The Netflix dataset contained missing values in columns such as director, cast, and country. Instead of dropping these records, placeholder values were used to preserve as much information as possible. Date fields were converted to datetime format and duplicate records were removed to improve data quality.
+
+What Happens With New Data?
+
+When new Netflix records are added, the ingestion module will load the dataset and validate the schema. Great Expectations will check that important columns and data formats remain consistent. The cleaning module can then automatically apply the same transformations, making the pipeline reusable for future updates.
