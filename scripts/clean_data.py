@@ -36,10 +36,21 @@ for col in text_columns:
 print("\nMissing values after cleaning:")
 print(df.isnull().sum())
 
+df["content_age"] = 2026 - df["release_year"]
+
+print("Added content_age column")
+
+df = df.sort_values(
+    by="release_year",
+    ascending=False
+)
+
+print("Data sorted by release year")
+
 # Save cleaned dataset
 df.to_csv(
-    "data/netflix_clean.csv",
+    "data/clean_output.csv",
     index=False
 )
 
-print("\nCleaned dataset saved.")
+print("clean_output.csv created")
